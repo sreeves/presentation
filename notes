@@ -1,0 +1,65 @@
+Main focus: remote desktop
+- SLE as connecting to other systems:
+  * remote X11 applications through ssh is still supported and secure :
+ssh -X vs ssh -Y
+  * explain that XDMCP is something of the past, not a good idea to use
+it these days (security and bandwith reason)
+
+  * demo connecting to SLES 12 through : VNC, RDP (with a Windows client
+), VNC remote connection from java in a browser or even HTML5 in a
+browser !!
+
+- different way of remote desktop systems:
+ - VNC configured from YasT2
+ - vino
+ - xrdp
+
+TLS support for VNC : done in vino/vinagre, should be done for SP1 for
+tigervnc (to be checked)
+ 
+-starting graphical applications in containers (see with Cedric)
+- question: should we demo what alexl demoed during xdg-app talk on how
+to do anything across X11 socket ?
+
+* demo of kiosk: 
+- explain gsettings / dconf defaults + lockdown: disabling Alt-F2 and
+preventing any other keybinding to be set on this particular action
+- explanation of polkit permissions and demo on one specific permission:
+disabling USB stick mount without root password
+
+* session management (kill a session, etc..) with systemd-loginctl
+
+
+Setup, usage and best practices for optimizing remote graphical access to your SUSE Linux Enterprise systems.
+This session will cover the various remote access and multiple user strategies and options available.
+How to securely setup and in what situations to use the various remote graphical access methods such as vnc, xdmcp, VM access, freerdp and others.
+Launching X applications in containers.
+What is required and best solutions for accessing SUSE Linux Enterprise graphical applications from Windows.
+Situations that will require fallback to alternate display and window managers.
+Performance considerations and limitations with multiple simultaneous graphical user sessions and multiple user switching.
+Monitoring and administrating sessions.
+
+How to monitor via systemd loginctl
+Add more logging to gdm/gnome-shell on failure - possible backtrace from who called the oh-no method
+On black screen we still have gnome-shell running, we just don't have mutter anymore – display a warning screen.
+Add tls support in tigervnc so can talk with vino
+how do we configure vino/vinagre – what gconf keys.
+xrdp – bnc939109, bnc928030
+vnc/vino/vinagre,tigervnc,yast(xinetd)
+xdmcp, xrdp, vm access, xrdp
+when you will need to use xdm/iceWM (see the readme)
+windows access - attachmate java solution (Bankim Shaw), (is this reflectionX ?) Xming, Exceed (bad), cygwin, vncviewer,
+	tigervnc also provides a java version of the viewer - we use this from the browser
+	this java applet can also be run standalone
+		shell script started from xinetd and prints out simple http response
+launching X apps in containers
+/etc/sysconfig/displaymanager how it works, multiuser bnc#909360, switching users,
+vnc
+       	started by yast
+        the viewer displays a black screen when X.Org is run with libvnc.so and gets vt-switched away. Either close the remote connection or displaying a notification screen would be better
+	vino and vinagre support tls, we don't support this with Xvnc and vncviewer but it seems capable
+
+SLED Kiosk - liibreoffice, samba, gdm with AD Login, snapper, empathy with local users
+how to optimize the best choice of window managers and display managers, optimize for number of users, use the term systemd for administring, 
+	bnc#920969, bsc#928030-xrdp, 
+
