@@ -1,25 +1,31 @@
 Main focus: remote desktop
 - SLE as connecting to other systems:
-  * remote X11 applications through ssh is still supported and secure :
-ssh -X vs ssh -Y
-  * explain that XDMCP is something of the past, not a good idea to use
-it these days (security and bandwith reason)
 
-  * demo connecting to SLES 12 through : VNC, RDP (with a Windows client
-), VNC remote connection from java in a browser or even HTML5 in a
-browser !!
-
-- different way of remote desktop systems:
- - VNC configured from YasT2
- - vino
- - xrdp
+Remote Desktop Methods
+	explain that XDMCP is something of the past, not a good idea to use it these days (security and bandwith reason)
+	VNC - Xvnc. configured from YasT2
+		/etc/X11/xorg.conf.d/10-libvnc.conf - don't use the suggested DefaultDepth 16. bsc#942982
+			not supported by lots of driver/hardware combos - leave user with an Xserver that won't start
+			no real benefit.
+		managed with vncconfig, vncpasswd
+			how does that interact with loginctl
+	VNC - vino. configured from control-center. what gconf keys
+	xrdp
+Demo
+	demo connecting to SLES 12 through : VNC, RDP (with a Windows client),
+	VNC remote connection from java in a browser or even HTML5 in a browser !!
+Other Methods
+	remote X11 applications through ssh is still supported and secure :
+		ssh -X vs ssh -Y
+		why does ssh -X and then evince not resize.
+	starting graphical applications in containers (see with Cedric)
+	should we demo what alexl demoed during xdg-app talk on how to do anything across X11 socket ?
+Session monitoring / management
+	session management (kill a session, etc..) with systemd-loginctl
 
 TLS support for VNC : done in vino/vinagre, should be done for SP1 for
 tigervnc (to be checked)
  
--starting graphical applications in containers (see with Cedric)
-- question: should we demo what alexl demoed during xdg-app talk on how
-to do anything across X11 socket ?
 
 * demo of kiosk: 
 - explain gsettings / dconf defaults + lockdown: disabling Alt-F2 and
@@ -27,7 +33,6 @@ preventing any other keybinding to be set on this particular action
 - explanation of polkit permissions and demo on one specific permission:
 disabling USB stick mount without root password
 
-* session management (kill a session, etc..) with systemd-loginctl
 
 
 Setup, usage and best practices for optimizing remote graphical access to your SUSE Linux Enterprise systems.
