@@ -18,6 +18,7 @@ Other Methods
 	remote X11 applications through ssh is still supported and secure :
 		ssh -X vs ssh -Y
 		why does ssh -X and then evince not resize.
+		problems with menu bar - ie ssh -> gnote. Can't click on the menu bar in the header
 	starting graphical applications in containers (see with Cedric)
 	should we demo what alexl demoed during xdg-app talk on how to do anything across X11 socket ?
 Session monitoring / management
