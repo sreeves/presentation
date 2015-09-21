@@ -23,6 +23,8 @@ Other Methods
 	should we demo what alexl demoed during xdg-app talk on how to do anything across X11 socket ?
 Session monitoring / management
 	session management (kill a session, etc..) with systemd-loginctl
+	debugging
+		/etc/gdm/custom.conf -> section [debug] -> Enable=true
 
 TLS support for VNC : done in vino/vinagre, should be done for SP1 for
 tigervnc (to be checked)
