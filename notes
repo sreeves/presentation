@@ -22,7 +22,7 @@ Other Methods
 	starting graphical applications in containers (see with Cedric)
 	should we demo what alexl demoed during xdg-app talk on how to do anything across X11 socket ?
 Session monitoring / management
-	session management (kill a session, etc..) with systemd-loginctl
+	session management (kill a session, see man systemd-logind) with systemd-loginctl
 	debugging
 		/etc/gdm/custom.conf -> section [debug] -> Enable=true
 
