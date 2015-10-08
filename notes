@@ -10,7 +10,7 @@ Remote Desktop Methods
 			how does that interact with loginctl
 		bnc#920969
 	VNC - vino. configured from control-center. what gconf keys
-	xrdp – bnc939109, bnc928030
+	RDP (provided by xrdp / freerdp) – bnc939109, bnc928030
 	Vinagre - discuss keybinding passthrough, show full screen toolbar now that it works, gconf keys
 	vncviewer
 		tigervnc also provides a java version of the viewer - we use this from the browser
@@ -27,7 +27,7 @@ Other Methods
 		problems with menu bar - ie ssh -> gnote. Can't click on the menu bar in the header
 	starting graphical applications in containers (see with Cedric)
 	should we demo what alexl demoed during xdg-app talk on how to do anything across X11 socket ?
-	Accessing SLE from windows
+Accessing SLE from windows
 		windows access - attachmate java solution (Bankim Shaw), (is this reflectionX ?) Xming, Exceed (bad), cygwin, vncviewer,
 Session monitoring / management
 	session management (kill a session, see man systemd-logind) with systemd-loginctl
