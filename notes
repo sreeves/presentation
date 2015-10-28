@@ -2,6 +2,7 @@ Setup and optimization for remote graphical access
 
 Remote Desktop Methods
 	explain that XDMCP is something of the past, not a good idea to use it these days (security and bandwith reason)
+		recent update to fix crash caused by patch to disallow root login
 	VNC - Xvnc. configured from YasT2 (xinetd)
 		/etc/X11/xorg.conf.d/10-libvnc.conf - don't use the suggested DefaultDepth 16. bsc#942982
 			not supported by lots of driver/hardware combos - leave user with an Xserver that won't start
@@ -11,12 +12,12 @@ Remote Desktop Methods
 		bnc#920969
 	VNC - vino. configured from control-center. what gconf keys
 	RDP (provided by xrdp / freerdp) – bnc939109, bnc928030
-	Vinagre - discuss keybinding passthrough, show full screen toolbar now that it works, gconf keys
+	Vinagre - discuss keybinding passthrough, show full screen toolbar now that it works, integration with gnome-keyring, gconf keys
 	vncviewer
 		tigervnc also provides a java version of the viewer - we use this from the browser
 		this java applet can also be run standalone
 			shell script started from xinetd and prints out simple http response
-	Security - TLS support for VNC in vino/vinagre. Supposed to be in SP1 for tigervnc also but as of RC1 does not work
+	Security - TLS support for VNC in vino/vinagre. Supposed to be in SP1 for tigervnc also but as of RC3 does not work
 Demo
 	demo connecting to SLES 12 through : VNC, RDP (with a Windows client),
 	VNC remote connection from java in a browser or even HTML5 in a browser !!
@@ -36,7 +37,7 @@ Session monitoring / management
 	when you will need to use xdm/iceWM (see the readme)
 	/etc/sysconfig/displaymanager how it works
 	Performance considerations and limitations with multiple simultaneous graphical user sessions and multiple user switching.
-		multiuser bnc#909360, switching users,
+		multiuser bnc#909360, switching users bsc929122 and bsc940159,
 Additional settings
 	demo of kiosk: 
 		- explain gsettings / dconf defaults + lockdown: disabling Alt-F2 and
