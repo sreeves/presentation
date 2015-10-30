@@ -20,7 +20,32 @@ Remote Desktop Methods
 	Security - TLS support for VNC in vino/vinagre. Supposed to be in SP1 for tigervnc also but as of RC3 does not work
 Demo
 	demo connecting to SLES 12 through : VNC, RDP (with a Windows client),
-	VNC remote connection from java in a browser or even HTML5 in a browser !!
+	VNC remote connection from java in a browser (or even HTML5 in a browser !!)
+* users/pass on linux VM: 
+  tux / tux
+  root / susecon15
+
+ on Windows VM: susecon/susecon
+
+  3 VMs:
+  SLES12SP1: 192.168.122.72
+   vino is enabled on main VNC port (:0)
+   vnc non persistent on :1 (TLS enabled)
+   vnc persistent on :2 (TLS enabled)
+   http/https enabled for vnc:1 and vnc:2
+   rdp available (allow to connect to both vnc:1 and vnc:2)
+   xdmcp enabled
+
+  SLED12SP1: 192.168.122.200
+   vino is enabled on this VM (shouldn't be needed)
+   firefox shortcut on the desktop to demo java vnc
+   vinagre preconfigured with bookmarks for SLES VNC:1, SLES vnc:2, RDP on Windows
+
+  Windows: 192.168.122.194
+   RDP enabled
+   IE shortcuts to demo VNC connection over java
+   RDP viewer shortcut to connect on SLES
+
 Other Methods
 	remote X11 applications through ssh is still supported and secure :
 		ssh -X vs ssh -Y
@@ -40,10 +65,14 @@ Session monitoring / management
 		multiuser bnc#909360, switching users bsc929122 and bsc940159,
 Additional settings
 	demo of kiosk: 
-		- explain gsettings / dconf defaults + lockdown: disabling Alt-F2 and
-		preventing any other keybinding to be set on this particular action
+		- explain gsettings / dconf defaults + lockdown:
+         * disabling Alt-F2( explain we can also customize / changes keybinding )
+         * disabling save-to-disk
+         * disabling log-out
+         * disabling printing icon
 		- explanation of polkit permissions and demo on one specific permission:
-			disabling USB stick mount without root password
+            * disabling reboot without root password on SLED (ie SLES behaviour)
+			other possibilities (not demoed): disabling USB stick mount without root password
 
 
 Add more logging to gdm/gnome-shell on failure - possible backtrace from who called the oh-no method
