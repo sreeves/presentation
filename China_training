@@ -1,0 +1,39 @@
+discussion as well as training, split out development,
+
+- Day 1: meeting everybody in the teams and get to know what they work on, how they do their work
+	Introduction of Scott's team members - who they are, what they work one, areas of expertise, maybe a video chat ?
+	Discussion on how to make the two team collaborate more efficiently.
+		L3 and security bugs process, bug triage and assignment,
+
+- Day 2: gather feedback on SLE12 GA and SP1 development and QA: what went well, what went wrong ? Get suggestion on what to improve in the weakness which were reported 
+	gather input on what to do for SP2 (this might come a bit late, based on feature deadline, but I got the sense the teams want to be more involved in the product, know where we want to target it, etc.)
+	Present what we expect to do for SP2 and see how to schedule the work across the development period.
+
+	For SP2, people (devs) may be very interested in where to push commit. Taking SP1 as an example, devs are confused why some times to push sle12sp1, while some times to sle12ga. So I feel it would be very useful to explain a bit the relationship across GA, SP1 and SP2 from codebase management aspects (together with related process, QAM, code review, feature branch etc.).
+
+- Day 3: openQA session for everybody (this should involve Sunny team, who are the one working the most on openQA in Beijing)
+	get a training on how to use openQA and design tests
+	have everybody (both QA, developers, TL and prjmgr) write some test cases in openQA. A good exercice would be to use some of the validation tests which are not yet in openQA and have them ported to openQA.
+
+- Day 4: developer oriented session 
+
+- Day 5: TBD
+
+additional ideas
+- explanation of the various layers in the GNOME desktop : udev / pulseaudio / logind / polkit / etc...
+- upstream contribution (openSUSE / TW and GNOME) : we want to help China team to contribute more to openSUSE and GNOME 
+- bugday / bugfest: where we search for new bugs (or existing one) and try to fix them
+- jenkins / openqa automation for desktop rebase (having openqa staging at the development level and not later in the integration phase)
+polkit-default-privs
+r&d org - who is doing what
+sp2 schedules, release cycle, fate
+how we generate a service pack, why we submit to multiple sp's in some cases
+opensuse and suse cooperation, upstream cooperation
+gpg
+polkit
+differnece between sled, sles slewe
+what is in 3.20
+glibs gtest infrastructure
+gsettings, dconf
+remote access strategies - susecon talk
+
