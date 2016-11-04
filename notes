@@ -2,18 +2,19 @@ Setup and optimization for remote graphical access
 Q1. why does enabling "remote admin" turn on DISPLAYMANAGER_ROOT_LOGIN_REMOTE
 
 Remote Desktop Methods
-	START with query of the audiance.
+	start with query of the audiance - what remote methods do you use, how well do they work.
+		last year someone mentioned starting a full session via "ssh -X". look into that and see if it works
+	state that we will explain first and then demo everything.
 	explain that XDMCP is something of the past, not a good idea to use it these days (security and bandwith reason)
 		need to go over a vpn for security, 
-		recent update to fix crash caused by patch to disallow root login
-	Firewall.
-	VNC - Xvnc. configured from YasT2 (xinetd)
+	VNC - Xvnc. configured from YasT2 (xinetd)  //with SP2 we now have a "session management" option ?
 		non persistent session, if the viewer machine crashes the session is lost,
 		secure without a password as long as gdm requires auth
 		can be configured to be persistent session via the wait=no param
 		managed with vncconfig (clipboard support), vncpasswd
 			how does that interact with loginctl
 		bnc#920969
+		with SP2 if attempt to login as a user that is already logged in you will get an error message
 	VNC - vino. configured from control-center. underlying gconf keys demoed later (disable logout)
 		must be logged in to the session, if the X server goes into background viewer freezes
 		persistent, multiple simaltaneous connections
@@ -21,7 +22,8 @@ Remote Desktop Methods
 			not supported by lots of driver/hardware combos - leave user with an Xserver that won't start
 			no real benefit.
 	RDP (provided by xrdp / freerdp) – bnc939109, bnc928030
-	Vinagre - discuss keybinding passthrough, show full screen toolbar now that it works, integration with gnome-keyring, gconf keys
+	Vinagre - discuss keybinding passthrough, show full screen toolbar now that it works
+		integration with gnome-keyring, gconf keys, run with --gtk-vnc-debug
 	vncviewer
 		tigervnc also provides a java version of the viewer - we use this from the browser
 		this java applet can also be run standalone
@@ -67,6 +69,7 @@ Accessing SLE from windows
 Session monitoring / management
 	session management (kill a session, see man systemd-logind) with systemd-loginctl
 	debugging
+		Firewall.
 		/etc/gdm/custom.conf -> section [debug] -> Enable=true
 	when you will need to use xdm/iceWM (see the readme)
 	/etc/sysconfig/displaymanager how it works
